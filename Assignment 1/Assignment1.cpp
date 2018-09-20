@@ -9,14 +9,13 @@ int main()
 	int workingValue;
 
 	// Assigning bill denominations, this could also be a const bc they shouldn't change
-	int dollbill = 1;
-	int fivebill = 5;
-	int tenbill = 10;
-	int twenbill = 20;
-	int fifbill = 50;
+	int dollBill = 1;
+	int fiveBill = 5;
+	int tenBill = 10;
+	int twentyBill = 20;
+	int fiftyBill = 50;
 	
 	// Assigning bill counts
-
 	int dollCount = 0;
 	int fiveCount = 0;
 	int tenCount = 0;
@@ -26,75 +25,81 @@ int main()
 	char answer;
 
 	do {
+
 		answer = 'N';
+		// reseting all bill counts back to 0
 		dollCount = 0;
 		fiveCount = 0;
 		tenCount = 0;
 		twenCount = 0;
 		fifCount = 0;
 
-		do {
+		do 
+		{
 			cout << "Please enter withdrawl amount: ";
 			cin >> value;
 
+			// withdrawl restrictions, max $300 and min $1
 			if (value > 300) cout << "Sorry the maximum amount you can withdraw is $300.00 \n " << endl;
-			if (value < dollbill) cout << "Sorry the minimum amount you can withdraw is $1.00 \n" << endl;
+			if (value < dollBill) cout << "Sorry the minimum amount you can withdraw is $1.00 \n" << endl;
 
 			workingValue = value;
 
+		// loop that will keep asking the user for a valid withdrawl amount if withdrawl conditions are not met
+		} while ((value > 300) | (value < dollBill));
 
-		} while ((value > 300) | (value < dollbill));
-
-
-		while (workingValue > 0)
+		if ((workingValue >= fiftyBill) && (workingValue / fiftyBill > 0) && (workingValue > 0))
 		{
-			if ((workingValue >= fifbill) && (workingValue / fifbill > 0))
-			{
-				fifCount = workingValue / fifbill;
-				workingValue = workingValue % fifbill;
-			}
-
-			if ((workingValue >= twenbill) && (workingValue / twenbill > 0))
-			{
-				twenCount = workingValue / twenbill;
-				workingValue = workingValue % twenbill;
-			}
-
-			if ((workingValue >= tenbill) && (workingValue / tenbill > 0))
-			{
-				tenCount = workingValue / tenbill;
-				workingValue = workingValue % tenbill;
-			}
-
-			if ((workingValue >= fivebill) && (workingValue / fivebill > 0))
-			{
-				fiveCount = workingValue / fivebill;
-				workingValue = workingValue % fivebill;
-			}
-
-			if ((workingValue >= dollbill) && (workingValue / dollbill > 0))
-			{
-				dollCount = workingValue / dollbill;
-				workingValue = workingValue % dollbill;
-			}
+			// reseting all bill counts back to 0
+			fifCount = workingValue / fiftyBill;
+			workingValue = workingValue % fiftyBill;
+			// will only display the amount of bills if the number of bills is > 0
+			if (fifCount > 0)
+				cout << "Dispensed " << fifCount << " $" << fiftyBill << ".00 bill(s)" << endl;
 		}
 
-		if (fifCount > 0)
-			cout << "Dispensed " << fifCount << " $50.00 bill(s)" << endl;
-		if (twenCount > 0)
-			cout << "Dispensed " << twenCount << " $20.00 bill(s)" << endl;
-		if (tenCount > 0)
-			cout << "Dispensed " << tenCount << " $10.00 bill(s)" << endl;
-		if (fiveCount > 0)
-			cout << "Dispensed " << fiveCount << " $5.00 bill(s)" << endl;
-		if (dollCount > 0)
-			cout << "Dispensed " << dollCount << " $1.00 bill(s)" << endl;
+		if ((workingValue >= twentyBill) && (workingValue / twentyBill > 0) && (workingValue > 0))
+		{
+			twenCount = workingValue / twentyBill;
+			workingValue = workingValue % twentyBill;
+			// will only display the amount of bills if the number of bills is > 0
+			if (twenCount > 0)
+				cout << "Dispensed " << twenCount << " $" << twentyBill << ".00 bill(s)" << endl;
+		}
 
+		if ((workingValue >= tenBill) && (workingValue / tenBill > 0) && (workingValue > 0))
+		{
+			tenCount = workingValue / tenBill;
+			workingValue = workingValue % tenBill;
+			// will only display the amount of bills if the number of bills is > 0
+			if (tenCount > 0)
+				cout << "Dispensed " << tenCount << " $"<< tenBill <<".00 bill(s)" << endl;
+		}
+
+		if ((workingValue >= fiveBill) && (workingValue / fiveBill > 0) && (workingValue > 0))
+		{
+			fiveCount = workingValue / fiveBill;
+			workingValue = workingValue % fiveBill;
+			// will only display the amount of bills if the number of bills is > 0
+			if (fiveCount > 0)
+				cout << "Dispensed " << fiveCount << " $"<< fiveBill << ".00 bill(s)" << endl;
+		}
+
+		if ((workingValue >= dollBill) && (workingValue / dollBill > 0) && (workingValue > 0))
+		{
+			dollCount = workingValue / dollBill;
+			workingValue = workingValue % dollBill;
+			// will only display the amount of bills if the number of bills is > 0
+			if (dollCount > 0)
+				cout << "Dispensed " << dollCount << " $" << dollBill <<".00 bill(s)" << endl;
+		}
+
+		// asks if the user wants to enter another transaction
 		cout << "\n Do you want to make an additional withdrawl? Enter Y to continue ";
 		cin >> answer;
 		cout << "\n";
 
-	}
+	} // loop if user wants to make another withdrawl
 	while (answer == 'Y');
 
 	system("pause");
