@@ -73,7 +73,7 @@ int main()
 			workingValue = workingValue % tenBill;
 			// will only display the amount of bills if the number of bills is > 0
 			if (tenCount > 0)
-				cout << "Dispensed " << tenCount << " $"<< tenBill <<".00 bill(s)" << endl;
+				cout << "Dispensed " << tenCount << " $" << tenBill << ".00 bill(s)" << endl;
 		}
 
 		if ((workingValue >= fiveBill) && (workingValue / fiveBill > 0) && (workingValue > 0))
@@ -82,7 +82,7 @@ int main()
 			workingValue = workingValue % fiveBill;
 			// will only display the amount of bills if the number of bills is > 0
 			if (fiveCount > 0)
-				cout << "Dispensed " << fiveCount << " $"<< fiveBill << ".00 bill(s)" << endl;
+				cout << "Dispensed " << fiveCount << " $" << fiveBill << ".00 bill(s)" << endl;
 		}
 
 		if ((workingValue >= dollBill) && (workingValue / dollBill > 0) && (workingValue > 0))
@@ -91,7 +91,7 @@ int main()
 			workingValue = workingValue % dollBill;
 			// will only display the amount of bills if the number of bills is > 0
 			if (dollCount > 0)
-				cout << "Dispensed " << dollCount << " $" << dollBill <<".00 bill(s)" << endl;
+				cout << "Dispensed " << dollCount << " $" << dollBill << ".00 bill(s)" << endl;
 		}
 
 		// asks if the user wants to enter another transaction
