@@ -102,7 +102,9 @@ int main()
 	} // loop if user wants to make another withdrawl
 	while (answer == 'Y');
 
+	// system pause
 	system("pause");
 
+	// end
 	return 0;
 }
